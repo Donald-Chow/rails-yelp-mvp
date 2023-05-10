@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="restaurant-info">
     <h2><%=  @restaurant.name %></h2>
     <p>Address :<%=  @restaurant.address %></p>
@@ -11,6 +11,31 @@
       <%= review.content %>
       <%= review.rating %>
     <% end %>
+    <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-dark" %>
+  </div>
+</div> -->
+<div class="container">
+  <div class="card-trip mb-3">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%=  @restaurant.name %></h2>
+        <p>Category : <%=  @restaurant.category.capitalize %></p>
+        <p>Address : <%=  @restaurant.address %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%=  @restaurant.phone_number %></h2>
+    </div>
+  </div>
+  <div class="reviews">
+    <% @restaurant.reviews.each do |review| %>
+      <div class="card-product mb-2">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2>Rating : <%= review.rating %></h2>
+          <p><%= review.content %></p>
+        </div>
+      </div>
+      <% end %>
     <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-dark" %>
   </div>
 </div>
